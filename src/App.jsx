@@ -6,7 +6,6 @@ import MainPage from "./pages/MainPage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import TaskPage from "./pages/TaskPage";
 
-
 export default function App() {
 
     return (
