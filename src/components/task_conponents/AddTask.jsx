@@ -1,6 +1,6 @@
 
-import { useState, useContext } from "react";
 import { TaskContext } from "../../context/TaskContext";
+import { useContext, useState } from "react";
 
 export default function AddTask() {
     const [text, setText] = useState('')
@@ -8,25 +8,38 @@ export default function AddTask() {
 
     const { dispatch } = useContext(TaskContext)
 
-    const hadleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        if (!text.trim()) return;
-        dispatch({type: 'AddTask', title, text})
+        if (!text.trim() || !title.trim()) return;
+        
+        
+        dispatch(
+            {
+                type: 'ADD_TASK', 
+                payload: {
+                    title, 
+                    text,
+                    deadline: null,
+                }
+            }
+        )
+
         setTitle('')
         setText('')
     }
 
     return (
-        <form onSubmit={hadleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
-                onChange={(e) = setTitle(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
                 placeholder="Введите заголовок"
+                className="task-title-input"
             />
-            <input 
-                type="textarea" 
-                onChange={(e) = setText(e.target.value)}
+            <textarea
+                onChange={(e) => setText(e.target.value)}
                 placeholder="Введите текст"
+                className="task-text-input"
             />
 
             <button type="submit">Добавить</button>

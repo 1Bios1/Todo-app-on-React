@@ -14,8 +14,6 @@ export function TaskItem({ taskID, taskTitle, taskText }) {
                         { taskText } 
                    </p>
 
-                   <div className="task__deadline">Task deadline</div>
-
                    <div className="task__buttons">
                         <button className="task__succsed-btn">Task Completed!</button>
                         <button className="task__fail-btn">Stop completing task</button>

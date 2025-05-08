@@ -1,7 +1,7 @@
 
 import { createContext, useReducer } from "react"
 
-const initialState = {
+const initialTasksState = {
     tasks: [],
 }
 
@@ -15,8 +15,8 @@ function taskReducer(state, action) {
                     ...state.tasks, 
                         {
                             id: Date.now(),
-                            title: action.title,
-                            text: action.text,
+                            title: action.payload.title,
+                            text: action.payload.text,
                         }
                     ]
             }
@@ -29,7 +29,7 @@ export const TaskContext = createContext()
 
 export default function TaskProvider({ children }) {
 
-    const [state, dispatch] = useReducer(taskReducer, initialState)
+    const [state, dispatch] = useReducer(taskReducer, initialTasksState)
 
     const value = {state, dispatch}
 

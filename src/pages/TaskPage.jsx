@@ -1,4 +1,6 @@
+import AddTask from "../components/task_conponents/AddTask";
 import TaskList from "../components/task_conponents/TaskList";
+import TaskProvider from "../context/TaskContext";
 
 export default function TaskPage() {
 
@@ -6,8 +8,10 @@ export default function TaskPage() {
         <>
             <h1>Your tasks</h1>
 
-            <TaskList />
-            
+            <TaskProvider>
+                <AddTask />
+                <TaskList />
+            </TaskProvider>
         </>
     )
 }
