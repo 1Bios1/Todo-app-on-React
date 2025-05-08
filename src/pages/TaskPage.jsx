@@ -1,11 +1,13 @@
-
-
+import TaskList from "../components/task_conponents/TaskList";
 
 export default function TaskPage() {
 
     return (
         <>
-            <h1>Here will be our tasks</h1>
+            <h1>Your tasks</h1>
+
+            <TaskList />
+            
         </>
     )
 }

@@ -1,11 +1,20 @@
-
-
+import { TaskItem } from "./TaskItem"
 
 export default function TaskList() {
 
+  
+
     return (
         <>
-            <h1>Here we will "map" our tasks</h1>
+            <div className="tasks">
+                <div className="tasks__container">
+                    {
+                        tasks.map((task) => {
+                            return <TaskItem taskID={task.id} taskTitle={task.title} taskText={task.text}/>
+                        })
+                    }
+                </div>
+            </div>
         </>
     )
 }

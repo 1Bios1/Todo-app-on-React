@@ -1,20 +1,24 @@
 
 
 
-export function TaskItem() {
+export function TaskItem({ taskID, taskTitle, taskText }) {
 
     return (
         <>
-            <div className="task">
+            <div className="task" key={taskID}>
                 <div className="task__container">
 
-                   <h1 className="task__header">This is task header</h1>
-                   <p className="task__text">This is task header</p>
+                   <h1 className="task__header">{ taskTitle }</h1>
+
+                   <p className="task__text">
+                        { taskText } 
+                   </p>
+
                    <div className="task__deadline">Task deadline</div>
 
                    <div className="task__buttons">
                         <button className="task__succsed-btn">Task Completed!</button>
-                        <div className="task__fail-btn">Stop completing task</div>
+                        <button className="task__fail-btn">Stop completing task</button>
                    </div>
 
                 </div>
