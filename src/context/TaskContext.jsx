@@ -1,6 +1,7 @@
 
 import { createContext, useReducer } from "react"
 
+
 const initialTasksState = {
     tasks: [],
 }
@@ -20,8 +21,19 @@ function taskReducer(state, action) {
                         }
                     ]
             }
+
+        case 'DELETE_TASK':
+            return {
+                ...state,
+                tasks: [
+                    ...state.tasks.filter((task) => {
+                        return task.id !== action.payload.id
+                    })
+                ]
+            }
+        
         default:
-            state
+            return state
     }
 }
 
