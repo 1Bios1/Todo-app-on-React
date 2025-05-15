@@ -11,8 +11,7 @@ export default function AddTask() {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!text.trim() || !title.trim()) return;
-        
-        
+    
         dispatch(
             {
                 type: 'ADD_TASK', 
