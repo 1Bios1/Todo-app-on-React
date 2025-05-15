@@ -4,7 +4,7 @@ import { TaskContext } from "../../context/TaskContext"
 
 const now = new Date();
 const day = String(now.getDate()).padStart(2, '0');
-const month = String(now.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+const month = String(now.getMonth() + 1).padStart(2, '0'); 
 const year = now.getFullYear();
 const hours = String(now.getHours()).padStart(2, '0');
 const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -25,6 +25,15 @@ export function TaskItem({ taskID, taskTitle, taskText }) {
         })
     }
 
+    const handleComplete = () => {
+        dispatch({
+            type: 'TASK_COMPLETED',
+            payload: {
+                id: taskID,
+            }
+        })
+    }
+
     return (
         <>
             <div className="task" key={taskID}>
@@ -38,7 +47,7 @@ export function TaskItem({ taskID, taskTitle, taskText }) {
                    </p>
 
                    <div className="task__buttons">
-                        <button className="task__succsed-btn" >Task Completed!</button>
+                        <button className="task__succsed-btn" onClick={handleComplete}>Task Completed!</button>
                         <button className="task__fail-btn" onClick={handleDelete}>Stop completing task</button>
                    </div>
 

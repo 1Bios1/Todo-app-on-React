@@ -17,6 +17,11 @@ export default function Header() {
                             К заданиям!
                         </Link>
                     </li>
+                    <li>
+                        <Link to='/completed-tasks'>
+                            Выполненые задания
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </>

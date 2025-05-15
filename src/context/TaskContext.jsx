@@ -1,9 +1,9 @@
 
 import { createContext, useReducer } from "react"
 
-
 const initialTasksState = {
     tasks: [],
+    completedTasks: [],
 }
 
 function taskReducer(state, action) {
@@ -18,6 +18,8 @@ function taskReducer(state, action) {
                             id: Date.now(),
                             title: action.payload.title,
                             text: action.payload.text,
+                            completed: false,
+                            completedAt: null,
                         }
                     ]
             }
@@ -31,6 +33,32 @@ function taskReducer(state, action) {
                     })
                 ]
             }
+
+        case 'TASK_COMPLETED':
+
+            const completedTask = state.tasks.find((task) => task.id === action.payload.id);
+            if (!completedTask) return state;
+            
+
+            return {
+                ...state,
+                tasks:
+                    state.tasks.filter((task) => {
+                        task.id !== action.payload.id
+                    })
+                ,
+
+                completedTasks: [
+                    ...state.completedTasks,
+                    {
+                        ...completedTask,
+                        completed: true,
+                        completedAt: new Date().toISOString(),
+                    }
+                ]
+
+            }
+        
         
         default:
             return state

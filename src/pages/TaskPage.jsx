@@ -8,10 +8,9 @@ export default function TaskPage() {
         <>
             <h1>Your tasks</h1>
 
-            <TaskProvider>
                 <AddTask />
                 <TaskList />
-            </TaskProvider>
+        
         </>
     )
 }
