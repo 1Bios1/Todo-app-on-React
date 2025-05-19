@@ -11,6 +11,7 @@ import CompletedTasksPage from "./pages/CompletedTasksPage";
 import Register from "./components/authorisation_components/Register";
 import Login from "./components/authorisation_components/Login";
 
+
 export default function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false)

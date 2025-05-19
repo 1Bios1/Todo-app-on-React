@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 export default function AddTask() {
     const [text, setText] = useState('')
     const [title, setTitle] = useState('')
+    const [deadline, setDeadline] = useState('')
 
     const { dispatch } = useContext(TaskContext)
 
@@ -18,7 +19,7 @@ export default function AddTask() {
                 payload: {
                     title, 
                     text,
-                    deadline: null,
+                    deadline: deadline || null,
                 }
             }
         )
@@ -39,6 +40,11 @@ export default function AddTask() {
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Введите текст"
                 className="task-text-input"
+            />
+            <input 
+                type="datetime-local" 
+                onChange={(e) => setDeadline(e.target.value)}
+                placeholder="Введите дату задачи"
             />
 
             <button type="submit">Добавить</button>

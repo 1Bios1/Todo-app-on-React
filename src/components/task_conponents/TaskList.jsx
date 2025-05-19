@@ -12,7 +12,7 @@ export default function TaskList() {
                 <div className="tasks__container">
                     {
                         state.tasks.map((task) => {
-                            return <TaskItem taskID={task.id} taskTitle={task.title} taskText={task.text} key={task.id}/>
+                            return <TaskItem task={task} key={task.id}/>
                         })
                     }
                 </div>
