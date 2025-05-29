@@ -39,7 +39,7 @@ function taskReducer(state, action) {
                             deadline: action.payload.deadline,
                             isExpired: false,
                             completed: false,
-                            completedAt: new Date().toISOString(),
+                            createdAt: new Date().toISOString(),
                             timeLeft: calculateTimeLeft(action.payload.deadline)
                         }
                     ]
